@@ -1,4 +1,5 @@
 from fastapi import FastAPI, Depends, Form
+from fastapi.responses import JSONResponse
 from sqlalchemy.orm import Session
 import models, database, crud
 
@@ -17,5 +18,5 @@ def leave_message(
     db: Session = Depends(database.get_db)
 ):
     new_msg = crud.create_message(db, first_name, last_name, email, message)
-    return {"status": "success", "id": new_msg.id}
+    return JSONResponse(content={"status": "Message received", "id": new_msg.id})
 
