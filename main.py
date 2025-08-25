@@ -2,6 +2,8 @@ from fastapi import FastAPI, Depends, Form
 from fastapi.responses import JSONResponse
 from sqlalchemy.orm import Session
 import models, database, crud
+from fastapi.middleware.cors import CORSMiddleware
+
 
 app = FastAPI()
 
