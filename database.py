@@ -3,8 +3,9 @@ from sqlalchemy.orm import sessionmaker, declarative_base
 import models
 import database
 import crud
+import os
 
-DATABASE_URL = "postgresql://postgres:Rraa%40113355@localhost:5432/leave_a_message"
+DATABASE_URL = os.getenv("DATABASE_URL", "sqlite:///./test.db")
 
 engine = create_engine(DATABASE_URL)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
