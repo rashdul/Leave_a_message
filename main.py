@@ -16,9 +16,14 @@ models.Base.metadata.create_all(bind=database.engine)
 #     "http://localhost:5500",  # useful for local dev if you test from file:// or localhost
 # ]
 
+origins=[
+    "http://127.0.0.1:5500",  # local testing
+    "rdulaijan.com"   # production site
+]
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # or ["*"] if you want to allow all
+    allow_origins=origins,  # or ["*"] if you want to allow all
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
