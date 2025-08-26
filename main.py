@@ -18,7 +18,7 @@ models.Base.metadata.create_all(bind=database.engine)
 
 origins=[
     "http://127.0.0.1:5500",  # local testing
-    "rdulaijan.com"   # production site
+    "https://rdulaijan.com"   # production site
 ]
 
 app.add_middleware(
